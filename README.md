@@ -1,7 +1,7 @@
 jquery-colorize
 ========
 
-jQuery plugin for generating heat maps
+jQuery plugin for generating heat maps. Inspired by [jquery-hottie](https://github.com/DLarsen/jquery-hottie).
 
 #### Usage
 ```
