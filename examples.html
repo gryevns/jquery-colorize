@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  	<meta charset="utf-8">
+	  	<title>Colorize Examples</title>
+	  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	  	<script src="jquery-colorize.js"></script>
+	  	<style>
+	  	body { font-family: Arial,Helvetica Neue,Helvetica,sans-serif; font-size: 15px; }
+	  	table { border-spacing: 0; }
+	  	table td { padding: 5px; text-align: center; }
+	  	ul { margin: 0; padding: 0;}
+	  	ul li { list-style: none; padding:5px; }
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+					<th>10</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr/>
+
+		<ul>
+			<li data-hist="9">A</li>
+			<li data-hist="8">B</li>
+			<li data-hist="7">C</li>
+			<li data-hist="6">D</li>
+			<li data-hist="5">E</li>
+			<li data-hist="4">F</li>
+			<li data-hist="3">G</li>
+			<li data-hist="2">H</li>
+			<li data-hist="1">I</li>
+		</ul>
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+			// generate some random values in table
+			$("table tbody td").each(function(index, cell) {
+				var value = parseFloat((Math.random() * 201) - 100).toPrecision(5);
+				$(this).text(value);
+			});
+
+			// Table Heat Map
+			$("table tbody td").not(":nth-child(1),:nth-child(2)").colorize();
+
+			// List Heat Map
+			// 50% min/max
+			$("ul li").colorize({
+				percent: true, 
+				min: -0.5, 
+				max: 0.5, 
+				parse: function(e) { 
+					return $(e).attr("data-hist"); 
+				}
+			});
+		});
+		</script>
+	</body>
+</html>
