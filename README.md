@@ -38,9 +38,9 @@ $("li").colorize({
 // Custom theme
 var themes = { 
 	my_custom_theme: { 
-		min_color: "#000000", 
-		mid_color:"#DDDDDD", 
-		max_color: "#FFFFFF"
+		color_min: "#000000", 
+		color_mid:"#DDDDDD", 
+		color_max: "#FFFFFF"
 	}
 };
 $("table tbody td").colorize({ 
